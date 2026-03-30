@@ -6,6 +6,7 @@ import model.entinties.Department;
 import model.entinties.Seller;
 
 import java.util.Date;
+import java.util.List;
 
 public class Program {
     public static void main(String[] args) {
@@ -17,7 +18,14 @@ public class Program {
         SellerDao sellerDao = DAOFactory.createSellerDao();
         System.out.println("=====teste 1: findByID++++");
         Seller seller = sellerDao.findById(3);
-
         System.out.println(seller);
+
+        System.out.println();
+        Department department = new Department(4, null);
+        System.out.println("=====teste 2: findByDepartment++++");
+        List<Seller> list = sellerDao.findByDepartment(department);
+        for (Seller obj: list){
+            System.out.println(obj);
+        }
     }
 }
