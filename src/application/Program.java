@@ -35,10 +35,19 @@ public class Program {
             System.out.println(obj);
         }
 
+        System.out.println();
         System.out.println("=====teste 4: Seller insert++++");
         Seller newSeller = new Seller(null,"alimissoia","alimissoia@gmail.com", new Date(), 4000.0, department);
         sellerDao.insert(newSeller);
         System.out.println("inserido novo id = " +newSeller.getId());
+
+        System.out.println();
+        System.out.println("=====teste 5: Seller update++++");
+        seller = sellerDao.findById(1);
+        seller.setName("Marta Whaine");
+        seller.setBaseSalary(5000.0);
+        sellerDao.update(seller);
+        System.out.println("UPDATE COMPLETO");
 
     }
 }
